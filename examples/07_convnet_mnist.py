@@ -23,7 +23,7 @@ LEARNING_RATE = 0.001
 BATCH_SIZE = 128
 SKIP_STEP = 10
 DROPOUT = 0.75
-N_EPOCHS = 1
+N_EPOCHS = 15
 
 # Step 3: create placeholders for features and labels
 # each image in the MNIST data is of shape 28*28 = 784
@@ -117,10 +117,10 @@ with tf.Session() as sess:
     saver = tf.train.Saver()
     # to visualize using TensorBoard
     writer = tf.summary.FileWriter('./my_graph/mnist', sess.graph)
-    ckpt = tf.train.get_checkpoint_state(os.path.dirname('checkpoints/convnet_mnist_new/checkpoint'))
-    # if that checkpoint exists, restore from checkpoint
-    if ckpt and ckpt.model_checkpoint_path:
-        saver.restore(sess, ckpt.model_checkpoint_path)
+#    ckpt = tf.train.get_checkpoint_state(os.path.dirname('checkpoints/convnet_mnist_new/checkpoint'))
+#    # if that checkpoint exists, restore from checkpoint
+#    if ckpt and ckpt.model_checkpoint_path:
+#        saver.restore(sess, ckpt.model_checkpoint_path)
     
     initial_step = global_step.eval()
 
